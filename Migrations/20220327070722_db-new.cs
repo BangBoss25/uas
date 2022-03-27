@@ -2,7 +2,7 @@
 
 namespace uas.Migrations
 {
-    public partial class db : Migration
+    public partial class dbnew : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

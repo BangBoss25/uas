@@ -8,8 +8,8 @@ using uas.Data;
 namespace uas.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220323074031_db")]
-    partial class db
+    [Migration("20220327070722_db-new")]
+    partial class dbnew
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

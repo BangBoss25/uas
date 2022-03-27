@@ -17,11 +17,24 @@ namespace uas.Controllers
         private readonly AppDbContext _context;
         private readonly IAkunService _akSer;
 
-        public AkunController(AppDbContext context,IAkunService akSer)
+        public AkunController(IAkunService akSer, AppDbContext context)
         {
-            _context = context;
             _akSer = akSer;
+            _context = context;
         }
+
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SignUp(User data)
+        {
+            _akSer.DaftarUser(data);
+            return Redirect("SignIn");
+        }
+
         public IActionResult SignIn()
         {
             return View();
@@ -67,16 +80,10 @@ namespace uas.Controllers
             return View(parameter);
         }
 
-        public IActionResult SignUp()
+        public async Task<IActionResult> Logout()
         {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult SignUp(User datanya)
-        {
-            _akSer.DaftarUser(datanya);
-            return RedirectToAction("SignIn");
+            await HttpContext.SignOutAsync();
+            return Redirect("/");
         }
     }
 }

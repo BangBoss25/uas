@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace uas.areas.User.Controllers
+namespace uas.Areas.User.Controllers
 {
-    [Authorize(Roles = "User")]
-    [Area("User")]
+    [Authorize (Roles = "User")]
+    [Area ("User")]
     public class HomeController : Controller
     {
         public IActionResult Index()

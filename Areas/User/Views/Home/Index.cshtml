@@ -1,8 +1,82 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+
+@{ 
+    Layout = "_LayoutUser";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="title-tab-content d-flex">
+    <!-- tab product -->
+    <div class="dropdown-toggle toggle-category tab-category-none">Select Category</div>
+    <ul class="nav nav-tabs wibkit row">
+        <li class="col-xs-6">
+            <a href="#all" data-toggle="tab" class="active">ALL PRODUCTS</a>
+        </li>
+    </ul>
+</div>
+
+<!-- tab product content -->
+<div class="tab-content">
+    <div id="all" class="tab-pane fade in active show">
+        <!--<div class="item text-center row">
+            <?php
+            include "../app/controllers/tb-furniture.php";
+            $data = new Furniture();
+            ?>
+            <?php foreach($data->read() as $key ) : ?>
+            <div class="col-md-3 col-xs-12">
+                <div class="product-miniature js-product-miniature item-one first-item">
+                    <div class="thumbnail-container">
+                        <a href="product-detail.php?id=<?= $key['id_barang']?>">
+                            <img class="img-fluid" src="img/product/<?= $key['gambar']?>" alt="img">
+                        </a>
+                        <div class="product-flags discount"><?php echo $key['stok'] ?></div>
+                        <div class="highlighted-informations">
+                            <div class="variant-links">
+                                <a href="#" class="color beige" title="Beige"></a>
+                                <a href="#" class="color orange" title="Orange"></a>
+                                <a href="#" class="color green" title="Green"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <div class="product-groups">
+                            <div class="product-title">
+                                <a href="product-detail.php"><?php echo $key['nama_barang'] ?></a>
+                            </div>
+                            <div class="rating">
+                                <div class="star-content">
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                </div>
+                            </div>
+                            <div class="product-group-price">
+                                <div class="product-price-and-shipping">
+                                    <span class="price">Rp.<?php echo $key['harga'] ?></span>-->
+                                    <!-- <del class="regular-price">£28.68</del> -->
+                                <!--</div>
+                            </div>
+                        </div>
+                        <div class="product-buttons d-flex justify-content-center">
+                            <form action="#" method="post" class="formAddToCart">
+                                <input type="hidden" name="token">
+                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                </a>
+                            </form>
+                            <a class="addToWishlist wishlistProd_1" href="#" data-rel="1" onclick="">
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>-->
+    </div>
 </div>

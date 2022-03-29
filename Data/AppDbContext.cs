@@ -16,6 +16,7 @@ namespace uas.Data
         }
         public virtual DbSet<Roles> Tb_Roles { get; set; }
         public virtual DbSet<User> Tb_User { get; set; }
+        public virtual DbSet<Barang> Tb_Barang { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

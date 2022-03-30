@@ -6,42 +6,52 @@
     @if (!string.IsNullOrEmpty(ViewBag.Pesan))
     {
         // Harus pake " agar alert muncul
-        <script>alert("@ViewBag.Pesan");</script>
-    }
+<script>alert("@ViewBag.Pesan");</script>}
 }
 
-<form asp-action="SignIn" method="post" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
-    <span class="login100-form-title">
-        Sign In
-    </span>
-    <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-        <input class="input100" type="text" asp-for="Username" placeholder="Username">
-        <span class="focus-input100"></span>
-    </div>
 
-    <div class="wrap-input100 validate-input" data-validate="Please enter password">
-        <input class="input100" type="password" asp-for="Password" placeholder="Password">
-        <span class="focus-input100"></span>
-    </div>
+<title>Furnitica - Sign In</title>
 
-    <div class="text-right p-t-13 p-b-23">
-        <a href="#">
-            Forgot Your Password ?
-        </a>
+<div class="container">
+    <h1 class="text-center title-page">Sign In</h1>
+    <div class="login-form">
+        <form id="customer-form" asp-action="SigIn" method="post">
+            <div>
+                <input type="hidden" name="cek" value="login">
+                <div class="form-group no-gutters">
+                    <input class="form-control" asp-for="Username" type="text" placeholder="Username">
+                </div>
+                <div class="form-group no-gutters">
+                    <div class="input-group js-parent-focus">
+                        <input class="form-control js-child-focus js-visible-password" asp-for="Password" type="Password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="no-gutters text-center">
+                    <div class="forgot-password">
+                        <a href="#" rel="nofollow">
+                            Forgot your password?
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="text-center no-gutters">
+                    <input type="hidden" name="submitLogin">
+                    <button class="btn btn-primary" type="submit">
+                        Sign in
+                    </button>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="text-center no-gutters">
+                    <span class="txt1 p-b-9">
+                        Don't have an account?
+                    </span>
+                    <a asp-action="SignUp" class="txt3">
+                        Sign Up
+                    </a>
+                </div>
+            </div>
+        </form>
     </div>
-
-    <div class="container-login100-form-btn">
-        <button type="submit" class="login100-form-btn">
-            Sign In
-        </button>
-    </div>
-
-    <div class="flex-col-c p-t-170 p-b-40">
-        <span class="txt1 p-b-9">
-            Don't have an account?
-        </span>
-        <a asp-action="SignUp" class="txt3">
-            Sign Up
-        </a>
-    </div>
-</form>
+</div>

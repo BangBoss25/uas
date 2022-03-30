@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,8 +11,10 @@ using System.Threading.Tasks;
 using uas.Data;
 using uas.Models;
 using uas.Repositories.AkunRepository;
+using uas.Repositories.Repository;
 using uas.Services;
 using uas.Services.AkunService;
+using uas.Services.Service;
 
 namespace uas
 {
@@ -44,7 +45,12 @@ namespace uas
             services.AddScoped<IAkunRepository, AkunRepository>();
             services.AddScoped<IAkunService, AkunService>();
 
+            services.AddScoped<IStuffRepository, StuffRepository>();
+            services.AddScoped<IStuffService, StuffService>();
+
+            services.AddTransient<FileService>();
             services.AddTransient<EmailService>();
+
             services.Configure<Email>(Configuration.GetSection("AturEmail"));
 
             services.AddControllersWithViews();
@@ -86,7 +92,7 @@ namespace uas
                     );
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Akun}/{action=SignIn}/{id?}");
             });
         }
     }

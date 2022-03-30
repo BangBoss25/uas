@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Stuff>;
+
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Table Barang</h1>
+    <p class="mb-4">
+        
+    </p>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nama Barang</th>
+                            <th>Gambar</th>
+                            <th>Stok</th>
+                            <th>Harga</th>
+                            <th>Terjual</th>
+                            <th>Deskripsi</th>
+                            <th>Opsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.NamaBarang)</td>
+                                <td><img src="@item.Gambar" alt="Alternate Text" /></td>
+                                <td>@Html.DisplayFor(modelItem => item.Stok)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Harga)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Terjual)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Deskripsi)</td>
+                                <td>
+                                    <a href="#"><i class="fas fa-edit"></i></a>
+                                    <a href="#"><i class="fas fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

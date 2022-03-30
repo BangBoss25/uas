@@ -16,35 +16,6 @@ namespace uas.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.13");
 
-            modelBuilder.Entity("uas.Models.Barang", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Deskripsi")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Gambar")
-                        .HasColumnType("text");
-
-                    b.Property<int>("Harga")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NamaBarang")
-                        .HasColumnType("text");
-
-                    b.Property<int>("Stok")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Terjual")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tb_Barang");
-                });
-
             modelBuilder.Entity("uas.Models.Roles", b =>
                 {
                     b.Property<string>("Id")
@@ -68,6 +39,38 @@ namespace uas.Migrations
                             Id = "2",
                             Name = "User"
                         });
+                });
+
+            modelBuilder.Entity("uas.Models.Stuff", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Deskripsi")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Gambar")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Harga")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NamaBarang")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Stok")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Terjual")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tb_Barang");
                 });
 
             modelBuilder.Entity("uas.Models.User", b =>

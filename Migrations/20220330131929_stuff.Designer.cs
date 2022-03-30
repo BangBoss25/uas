@@ -8,8 +8,8 @@ using uas.Data;
 namespace uas.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220327070722_db-new")]
-    partial class dbnew
+    [Migration("20220330131929_stuff")]
+    partial class stuff
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,6 +41,38 @@ namespace uas.Migrations
                             Id = "2",
                             Name = "User"
                         });
+                });
+
+            modelBuilder.Entity("uas.Models.Stuff", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Deskripsi")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Gambar")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Harga")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NamaBarang")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Stok")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Terjual")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tb_Barang");
                 });
 
             modelBuilder.Entity("uas.Models.User", b =>
